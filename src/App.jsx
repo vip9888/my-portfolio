@@ -2,7 +2,7 @@
 // Modern Portfolio with Animations and Interactive Elements
 
 import { useState, useEffect } from "react";
-import { Github, Linkedin, Mail, Code2, ExternalLink, Download, ArrowRight, Star, Zap, Trophy, Users, Calendar, Phone, Building, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, Code2, ExternalLink, Download, ArrowRight, Star, Zap, Trophy, Users, Calendar, Phone, Building, FileText, Menu, X } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const projects = [
@@ -20,6 +20,7 @@ const projects = [
     description: "Summarize and Recommend research papers using Hugging Face, FastAPI backend , Streamlit frontend.",
     stack: ["Python", "FastAPI", "Streamlit", "Docker"],
     github: "https://github.com/vip9888/ai-research-analyzer",
+    featured: true,
     featured: true,
     stars: 32,
     type: "Personal"
@@ -107,6 +108,7 @@ const achievements = [
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
@@ -132,10 +134,12 @@ export default function Home() {
             >
               VC
             </motion.div>
+
+            {/* Desktop Navigation */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="flex space-x-6"
+              className="hidden md:flex space-x-6"
             >
               <a href="#home" className="hover:text-emerald-400 transition-colors">Home</a>
               <a href="#about" className="hover:text-emerald-400 transition-colors">About</a>
@@ -144,12 +148,75 @@ export default function Home() {
               <a href="#skills" className="hover:text-emerald-400 transition-colors">Skills</a>
               <a href="#contact" className="hover:text-emerald-400 transition-colors">Contact</a>
             </motion.div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 text-white hover:text-emerald-400 transition-colors"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="md:hidden mt-4 pb-4 border-t border-slate-700/50"
+            >
+              <div className="flex flex-col space-y-4 pt-4">
+                <a
+                  href="#home"
+                  className="hover:text-emerald-400 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </a>
+                <a
+                  href="#about"
+                  className="hover:text-emerald-400 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About
+                </a>
+                <a
+                  href="#experience"
+                  className="hover:text-emerald-400 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Experience
+                </a>
+                <a
+                  href="#projects"
+                  className="hover:text-emerald-400 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Projects
+                </a>
+                <a
+                  href="#skills"
+                  className="hover:text-emerald-400 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Skills
+                </a>
+                <a
+                  href="#contact"
+                  className="hover:text-emerald-400 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </a>
+              </div>
+            </motion.div>
+          )}
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center">
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 md:pt-0">
         <motion.div
           style={{ y }}
           className="absolute inset-0 flex items-center justify-center"
