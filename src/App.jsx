@@ -365,6 +365,11 @@ export default function Home() {
                 building RESTful APIs, and ensuring high code quality through best practices.
               </p>
               <p className="text-lg text-slate-300 leading-relaxed">
+                With strong expertise in C++, I excel in Object-Oriented Programming, Low Level Design (LLD), and design patterns.
+                I've implemented complex state machines and automotive systems using advanced C++ concepts, SOLID principles,
+                and architectural patterns like Skeleton design pattern for safety-critical applications.
+              </p>
+              <p className="text-lg text-slate-300 leading-relaxed">
                 Beyond coding, I'm an active problem solver with 500+ DSA problems solved across various platforms.
                 I believe in continuous learning and staying updated with the latest technologies and industry trends.
               </p>
@@ -426,7 +431,7 @@ export default function Home() {
                     <span className="text-gray-500">.</span>
                     <span className="text-white">passion</span>
                     <span className="text-gray-500">=</span>
-                    <span className="text-yellow-400">"AI & Backend"</span>
+                    <span className="text-yellow-400">"AI & Backend, C++"</span>
                   </motion.div>
 
                   <motion.div
@@ -441,7 +446,7 @@ export default function Home() {
                     <span className="text-gray-500">.</span>
                     <span className="text-white">skills</span>
                     <span className="text-gray-500">=</span>
-                    <span className="text-yellow-400">["Python", "AI/ML", "DSA"]</span>
+                    <span className="text-yellow-400">["Python", "AI/ML", "DSA", "C++"]</span>
                   </motion.div>
 
                   <motion.div
